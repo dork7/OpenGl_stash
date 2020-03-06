@@ -54,7 +54,9 @@ void display2(){
     glMatrixMode((GL_PROJECTION));
     glLoadIdentity(); // reset the coordiates of screen
 
-    glOrtho(-20,20,-20,20,-1,1);
+//    glOrtho(-20,20,-20,20,-1,1);
+    gluPerspective( 60 , 1, 2.0 , 50.0 );
+
     glEnable(GL_ALPHA_TEST);
     glAlphaFunc(GL_EQUAL,1.0);
 
@@ -185,7 +187,7 @@ void display()
     //    Cube vertex data:
     glEnd();
 
-    glTranslatef(0,0,-8.0);
+    glTranslatef(0,0,15.0);
 
     glRotatef(angle , 1.0 , 0.0 ,0.0);
     glRotatef(angle , 0.0 , 1.0 ,0.0);
