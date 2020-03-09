@@ -42,7 +42,7 @@ bool loadShader(GLint &program){
     ifstream in_file;
 
     //
-    in_file.open("/home/hamza/QT_projects/openGL_3DTexture/vertex_core.glsl");
+    in_file.open("/home/hamza/QT_projects/OpenGl_stash/openGL_3DTexture/vertex_core.glsl");
 
     if( in_file.is_open()){
         while(getline(in_file,temp)){
@@ -78,7 +78,7 @@ bool loadShader(GLint &program){
     // for fragment shader
 
     //
-    in_file.open("/home/hamza/QT_projects/openGL_3DTexture/fragment_core.glsl");
+    in_file.open("/home/hamza/QT_projects/OpenGl_stash/openGL_3DTexturefragment_core.glsl");
 
     if( in_file.is_open()){
         while(getline(in_file,temp)){
