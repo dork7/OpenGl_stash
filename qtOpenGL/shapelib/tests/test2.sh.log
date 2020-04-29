@@ -1,0 +1,2 @@
+./test-driver: line 107: ./tests/test2.sh: Permission denied
+FAIL tests/test2.sh (exit status: 126)

@@ -1,0 +1,4 @@
+diff: missing operand after '/home/hamza/Downloads/shapelib-1.5.0/contrib/tests/test.out'
+diff: Try 'diff --help' for more information.
+******* Test Succeeded *********
+PASS tests/shpproj.sh (exit status: 0)

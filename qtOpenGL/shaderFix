@@ -1,0 +1,74 @@
+A GOLD FISH
+3 years ago
+if you are only getting blue square try setting your shader files to
+
+basicShader.vs 
+=============================
+#version 120
+
+attribute vec3 position;
+
+void main()
+{
+ gl_Position = vec4(position, 1.0);
+}
+==============================
+basicShader.fs
+==============================
+#version 120
+
+void main()
+{
+ gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+}
+===============================
+
+
+
+Michael Zalla
+1 year ago
+In the fragment shader, if you want to replace the deprecated gl_FragColor variable with an out variable, you need to use the "varying" qualifier to avoid a shader compilation error:
+
+varying out vec4 diffuseColor;
+...
+diffuseColor = texture2D(diffuse, vec2(0.1, 0.1))
+
+// working 
+#version 120
+
+uniform sampler2D diffuse;
+void main()
+{
+ gl_FragColor =  texture2D(diffuse, vec2(0.3,0.8));//vec4(1.0,0.0,0.0,1.0);
+}
+
+
+// vs
+#version 120
+
+attribute vec3 position;
+attribute vec2 texCoord;
+
+varying vec2 texCoord0;
+
+
+void main()
+{
+ gl_Position = vec4(position, 1.0);
+ texCoord0 = texCoord;
+
+
+
+// fs
+
+#version 120
+
+varying vec2 texCoord0;
+
+uniform sampler2D diffuse;
+
+
+void main()
+{
+ gl_FragColor =  texture2D(diffuse, texCoord0);//vec2(0.3,0.8));//vec4(1.0,0.0,0.0,1.0);
+}
